@@ -28,3 +28,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "bundle/railscasts-theme"]
+	path = bundle/railscasts-theme
+	url = git@github.com:jpo/vim-railscasts-theme.git
