@@ -1,0 +1,30 @@
+[submodule "bundle\\delimitMate"]
+	path = bundle\\delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "bundle\\nerdtree"]
+	path = bundle\\nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle\\vim-ansible-yaml"]
+	path = bundle\\vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
+[submodule "bundle\\vim-fugitive"]
+	path = bundle\\vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle\\vim-misc"]
+	path = bundle\\vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "bundle\\vim-repeat"]
+	path = bundle\\vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle\\vim-sensible"]
+	path = bundle\\vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "bundle\\vim-session"]
+	path = bundle\\vim-session
+	url = https://github.com/xolox/vim-session.git
+[submodule "bundle\\vim-surround"]
+	path = bundle\\vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle\\undotree"]
+	path = bundle\\undotree
+	url = https://github.com/mbbill/undotree
