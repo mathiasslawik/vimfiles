@@ -22,3 +22,25 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+colorscheme railscasts
+
+if has('gui_running')
+  set guioptions-=T  " no toolbar
+  set lines=60 columns=108 linespace=0
+  if has('gui_win32')
+    au GUIEnter * simalt ~x
+    set guifont=Source_Code_Pro_Semibold:h14:cANSI:qDRAFT
+  else
+    set guifont=DejaVu\ Sans\ Mono\ 10
+  endif
+endif
+
+let g:vimtex_view_general_viewer = 'c:\local\SumatraPDF\SumatraPDF.exe'
+let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf -inverse-search "gvim --servername ' . v:servername
+                \ . ' --remote-send \"^<C-\^>^<C-n^>'
+                \ . ':drop \%f^<CR^>:\%l^<CR^>:normal\! zzzv^<CR^>'
+                \ . ':execute ''drop '' . fnameescape(''\%f'')^<CR^>'
+                \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
+                \ . ':call remote_foreground('''.v:servername.''')^<CR^>\""'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'

@@ -31,3 +31,6 @@
 [submodule "bundle/railscasts-theme"]
 	path = bundle/railscasts-theme
 	url = git@github.com:jpo/vim-railscasts-theme.git
+[submodule "bundle\\vimtex"]
+	path = bundle\\vimtex
+	url = https://github.com/lervag/vimtex
