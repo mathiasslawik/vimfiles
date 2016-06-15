@@ -44,3 +44,7 @@ let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line 
                 \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
                 \ . ':call remote_foreground('''.v:servername.''')^<CR^>\""'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
+filetype plugin indent on
+
+set bri
