@@ -1,5 +1,6 @@
-execute pathogen#infect()
+let mapleader = ','
 
+execute pathogen#infect()
 call pathogen#helptags()
 
 " Exit vim if last window is NERDTree
@@ -45,6 +46,26 @@ let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line 
                 \ . ':call remote_foreground('''.v:servername.''')^<CR^>\""'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
+set autochdir
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
 filetype plugin indent on
 
 set bri
+
+" Set spellfile to location that is guaranteed to exist
+set spellfile=$HOME/vimfiles/.vim-spell-en.utf-8.add
+
+:command! -bar SpellEn set spelllang=en spellfile=$HOME/vimfiles/.vim-spell-en.utf-8.add spell
+:command! -bar SpellDe set spelllang=de spellfile=$HOME/vimfiles/.vim-spell-de.utf-8.add spell
+
+nnoremap <Leader>s ]s
+nnoremap <Leader>a zg]s 
