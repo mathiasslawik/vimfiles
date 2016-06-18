@@ -69,3 +69,7 @@ set spellfile=$HOME/vimfiles/.vim-spell-en.utf-8.add
 
 nnoremap <Leader>s ]s
 nnoremap <Leader>a zg]s 
+
+#Use smart case by default (ignore case when only lowercase characters)
+set smartcase
+
