@@ -1,12 +1,8 @@
 let mapleader = ','
 
-execute pathogen#infect()
-call pathogen#helptags()
-
 " Exit vim if last window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-syntax on
 filetype on
 au BufNewFile,BufRead *.yml set filetype=ansible
 
@@ -23,8 +19,6 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-
-colorscheme railscasts
 
 if has('gui_running')
   set guioptions-=T  " no toolbar
@@ -70,6 +64,21 @@ set spellfile=$HOME/vimfiles/.vim-spell-en.utf-8.add
 nnoremap <Leader>s ]s
 nnoremap <Leader>a zg]s 
 
-#Use smart case by default (ignore case when only lowercase characters)
+" Use smart case by default (ignore case when only lowercase characters)
 set smartcase
 
+" Ignore junk files for CTRL-P completion
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|^.git$\|_site'
+
+set background=dark
+
+set encoding=utf-8
+
+execute pathogen#infect()
+call pathogen#helptags()
+
+colorscheme railscasts
+let g:airline_theme="luna"
+let g:airline_powerline_fonts = 1
+
+syntax on
