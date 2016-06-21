@@ -40,3 +40,6 @@
 [submodule "bundle/vim-orgmode"]
 	path = bundle/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode
+[submodule "extra/fonts"]
+	path = extra/fonts
+	url = https://github.com/powerline/fonts
