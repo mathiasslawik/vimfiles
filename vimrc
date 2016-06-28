@@ -74,6 +74,9 @@ set background=dark
 
 set encoding=utf-8
 
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
 execute pathogen#infect()
 call pathogen#helptags()
 
