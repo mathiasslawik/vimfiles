@@ -1,7 +1,30 @@
 let mapleader = ','
 
-" Exit vim if last window is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
 
 filetype on
 au BufNewFile,BufRead *.yml set filetype=ansible
@@ -51,6 +74,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Remap keys on German keyboards
+map ü <C-]>
+map ö [
+map ä ]
+map Ö {
+map Ä }
+map ß /
+
 filetype plugin indent on
 
 set bri
@@ -74,18 +105,6 @@ set background=dark
 
 set encoding=utf-8
 
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
-
-execute pathogen#infect()
-call pathogen#helptags()
-
-colorscheme railscasts
-let g:airline_theme="luna"
-let g:airline_powerline_fonts = 1
-
-syntax on
-
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
@@ -93,3 +112,42 @@ else
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
 endif
+
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" Map F2 and F3 to toggling line numbers
+:set number
+noremap <F2> :set invnumber<CR>
+inoremap <F2> <C-O>:set invnumber<CR>
+noremap <F3> :set invrelativenumber<CR>
+inoremap <F3> <C-O>:set invrelativenumber<CR>
+
+" Map F4 to showing NERDTree
+noremap <F4> :NERDTreeToggle<CR>
+inoremap <F4> <Esc><F4>
+
+" Map F5 to toggling autosave
+noremap <F5> :let g:auto_save = ! g:auto_save<CR>
+inoremap <F5> <Esc><F5>
+
+
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+
+set exrc
+
+execute pathogen#infect()
+call pathogen#helptags()
+
+colorscheme railscasts
+let g:airline_theme="durant"
+let g:airline_powerline_fonts = 1
+
+syntax on
+set secure
